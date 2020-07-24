@@ -12,14 +12,19 @@
 
 basedir=$(cd $(dirname $0) && pwd)
 $basedir/../configure \
-	--enable-gtest \
-	--enable-examples \
-	--with-valgrind \
-	--enable-profiling \
-	--enable-frame-pointer \
-	--enable-stats \
-	--enable-memtrack \
-	--enable-fault-injection \
-	--enable-debug-data \
-	--enable-mt \
-	"$@"
+        --enable-examples \
+        --with-valgrind \
+        --enable-profiling \
+        --enable-frame-pointer \
+        --enable-stats \
+        --enable-memtrack \
+        --enable-fault-injection \
+        --enable-debug-data \
+        --enable-debug \
+        --enable-mt \
+        --enable-cma \
+        --enable-devel-headers \
+        --with-rc \
+        --with-ud \
+	--with-mlx5-dv \
+        "$@"

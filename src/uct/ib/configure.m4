@@ -22,10 +22,10 @@ AC_MSG_NOTICE([Compiling $str])
 # RoCE Support
 AC_MSG_NOTICE([Roce support])
 with_hns_roce=yes
-AC_CHECK_FILE(/usr/lib64/libibverbs/libhns-rdmav25.so,[],[with_hns_roce=no])
-AC_CHECK_FILE(/usr/lib/modules/4.19.90-17.ky10.aarch64/kernel/drivers/infiniband/hw/hns/hns-roce.ko,[],[with_
+AC_CHECK_FILE(/usr/lib64/libibverbs/libhns-rdmav20.so,[],[with_hns_roce=no])
+AC_CHECK_FILE(/usr/lib/modules/4.19.90-9.ky10.aarch64/kernel/drivers/infiniband/hw/hns/hns-roce.ko,[],[with_
 hns_roce=no])
-AC_CHECK_FILE(/usr/lib/modules/4.19.90-17.ky10.aarch64/kernel/drivers/infiniband/hw/hns/hns-roce-hw-v2.ko,[],
+AC_CHECK_FILE(/usr/lib/modules/4.19.90-9.ky10.aarch64/kernel/drivers/infiniband/hw/hns/hns-roce-hw-v2.ko,[],
 [with_hns_roce=no])
 AS_IF([test "x$with_hns_roce" != xno],
         [AC_DEFINE([HAVE_HNS_ROCE], 1, [Hns ROCE support])])

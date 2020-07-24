@@ -1,0 +1,5 @@
+./autogen.sh
+# 如果出现问题需要回滚到master/HEAD重新执行
+
+ ./contrib/configure-devel --prefix=$PWD/install-debug > log.txt
+# 需要在log.txt里面确认Roce support下面三个文件都找到了
