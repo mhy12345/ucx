@@ -79,10 +79,17 @@ ucs_config_field_t uct_ib_iface_config_table[] = {
    "Max number of receive completions to pick during TX poll",
    ucs_offsetof(uct_ib_iface_config_t, tx.max_poll), UCS_CONFIG_TYPE_UINT},
 
+#if HAVE_HNS_ROCE
   {"TX_MIN_INLINE", "64",
    "Bytes to reserve in send WQE for inline data. Messages which are small\n"
    "enough will be sent inline.",
    ucs_offsetof(uct_ib_iface_config_t, tx.min_inline), UCS_CONFIG_TYPE_MEMUNITS},
+#else
+  {"TX_MIN_INLINE", "64",
+   "Bytes to reserve in send WQE for inline data. Messages which are small\n"
+   "enough will be sent inline.",
+   ucs_offsetof(uct_ib_iface_config_t, tx.min_inline), UCS_CONFIG_TYPE_MEMUNITS},
+#endif
 
   {"TX_INLINE_RESP", "0",
    "Bytes to reserve in send WQE for inline response. Responses which are small\n"
